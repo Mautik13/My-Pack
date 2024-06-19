@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+{% extends "master.html" %}
+
+{% block title %}
+  Details about Kittens
+{% endblock %}
+
+{% block content %}
+<h1>Kittens</h1>
+
+<ul>
+  {% for x in kittens %}
+    <li><a href="kitten_detail/{{ x.id }}">{{ x.cats_name }} {{ x.breeder_name }}</a></li>
+  {% endfor %}
+
+  <p>Back to <a href="/home">Menu</a></p>
+</ul>
+{% endblock %}
+
+</body>
+</html>

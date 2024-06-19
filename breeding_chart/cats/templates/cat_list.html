@@ -1,0 +1,55 @@
+{% extends "master.html" %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Table</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Cat Table</h1>
+        <table border="1">
+            <tr>
+                <th> </th>
+                <th>Cats name</th>
+                <th>Breeder name</th>
+                <th>Mothers name</th>
+                <th>Fathers name</th>
+                <th>Birth date</th>
+                <th>Action</th>
+            </tr>
+
+            {% for cat in cats %}
+                <tr>
+                    <td>{{ cat.id }}</td>
+                    <td>{{ cat.cats_name }}</td>
+                    <td>{{ cat.breeder_name }}</td>
+                    <td>{{ cat.mothers_name }}</td>
+                    <td>{{ cat.fathers_name }}</td>
+                    <td>{{ cat.birth_date }}</td>
+                    <td>
+                        {% if user.is_authenticated %}
+
+                            <li><a href="{% url 'remove_cat' cat.id %}">Remove Cat</a></li>
+                            <li><a href='/edit_cat'>Edit Cat</a></li>
+
+                            {% else %}
+                                <li><a href='users/login/'>Login</a></li>
+                        {% endif %}
+                    </td>
+                    </tr>
+            {% endfor %}
+        </table>
+    <br>
+
+    {% if user.is_authenticated %}
+        <li><a href='/add_cat'>Add Cat</a></li>
+        {% else %}
+            <li><a href='users/login/'>Login</a></li>
+    {% endif %}
+
+    <p>Back to <a href="/">Home</a></p>
+    {% endblock %}
+</body>
+</html>

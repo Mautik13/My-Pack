@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cattery of Rivia{% endblock %}</title>
+</head>
+<body>
+    <header>
+
+        <div style="float: right;">
+            {% if user.is_authenticated %}
+                <p>Welcome, {{ user.username }} | <a href='users/logout/'>Logout</a></p>
+            {% else %}
+                <a href='users/login/'>Login</a>
+            {% endif %}
+        </div>
+
+
+      <h1>Cattery of Rivia</h1>
+
+
+      {% block content %}
+
+      <p><a href="/">HOME</a></p>
+
+      <h1>Menu</h1>
+
+      <ul>
+        <li><a href="https://cats.com/cat-breeds/maine-coon">About rase</a></li>
+
+        <li><a href="cat/">Cat</a></li>
+
+        <li><a href="tomcat/">Tomcat</a></li>
+
+        <li><a href="kitten/">Kitten</a></li>
+      </ul>
+      {% endblock %}
+    </header>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+{% extends "master.html" %}
+
+{% block title %}
+    Details about {{ kitten.cats_name }} {{ kitten.breeder_name }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ kitten.cats_name }} {{ kitten.breeder_name }}</h1>
+
+<p>Mother: {{ kitten.mothers_name }}</p>
+<p>Father: {{ kitten.fathers_name }}</p>
+<p>Color: {{ kitten.color }}</p>
+<p>Date of birth: {{ kitten.birth_date }}</p>
+
+<p>Back to <a href="/home/kitten">Kittens</a></p>
+{% endblock %}
+
+</body>
+</html>

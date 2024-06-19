@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+{% extends "master.html" %}
+
+{% block title %}
+    Details about {{ tomcat.cat_name }} {{ tomcat.breeder_name }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ tomcat.cats_name }} {{ tomcat.breeder_name }}</h1>
+
+<p>Mother: {{ tomcat.mothers_name }}</p>
+<p>Father: {{ tomcat.fathers_name }}</p>
+<p>Color: {{ tomcat.color }}</p>
+<p>Date of birth: {{ tomcat.birth_date }}</p>
+
+    {% if cat.photo %}
+        <img src="{{ cat.photo.url }}" alt="{{ cat.name }}" width="200">
+        {% else %}
+            No photo
+    {% endif %}
+
+<p>Back to <a href="/home/tomcat">Tomcats</a></p>
+{% endblock %}
+
+</body>
+</html>

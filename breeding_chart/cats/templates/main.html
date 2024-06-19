@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cattery of Rivia{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div style="float: right;">
+            {% if user.is_authenticated %}
+                <p>Welcome, {{ user.username }} | <a href='users/logout/'>Logout</a></p>
+            {% else %}
+                <a href='users/login/'>Login</a>
+            {% endif %}
+        </div>
+        <h1>Cattery of Rivia</h1>
+        <h2>Welcome to site about Maine Coon cats in my cattery</h2>
+        <nav>
+            <ul>
+                <p>Visit all our cats <a href="home/">Menu</a></p>
+                <li><a href='cat_list/'>Cat list</a></li>
+
+                {% if user.is_authenticated %}
+                    <li><a href='add_cat/'>Add Cat</a></li>
+                    <li><a href='remove_cat/'>Add Cat</a></li>
+                    <li><a href='edit_cat/'>Add Cat</a></li>
+                    <li><a href='users/logout/'>Logout</a></li>
+                    {% else %}
+                        <li><a href='users/login/'>Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <h3>ABOUT THIS APP</h3>
+
+    <p>This app is designed for animal breeders, where they can keep records of their breeds<br>
+        and present them on the web. </p>
+    <p>After logging in offers the ability to add and remove animals, record and edit <br>
+        information about them</p>
+
+    <footer>
+        <p>Author Martina Motalová</p>
+        <p>&copy; 2024 Cattery</p>
+        <p><a href="https://app.websitepolicies.com/policies/view/akpod9d5">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

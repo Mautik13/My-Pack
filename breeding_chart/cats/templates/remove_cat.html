@@ -1,0 +1,16 @@
+{% extends 'master.html' %}
+
+{% block title %}Cat List{% endblock %}
+
+{% block content %}
+    <main>
+        <h2>Remove Cat</h2>
+        <p>Are you sure you want to remove Cat "{{ cat.title }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Yes, remove</button>
+            <a href='/cat_list'>Cancel</a>
+        </form>
+        <button onclick="window.location.href='/cat_list'">No, go back</button>
+    </main>
+{% endblock %}

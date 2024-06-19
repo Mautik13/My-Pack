@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats</title>
+    {% load static %}
+</head>
+<body>
+
+{% block title %}
+    Details about {{ cat.cats_name }} {{ cat.breeder_name }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ cat.cats_name }} {{ cat.breeders_name }}</h1>
+
+<p>Mother: {{ cat.mothers_name }}</p>
+<p>Father: {{ cat.fathers_name }}</p>
+<p>Color: {{ cat.color }}</p>
+<p>Date of birth: {{ cat.birth_date }}</p>
+
+    {% if cat.photo %}
+        <img src="{{ cat.photo.url }}" alt="{{ cat.name }}" width="200">
+        {% else %}
+            No photo
+    {% endif %}
+
+<p>Back to <a href="/home/cat">Cats</a></p>
+{% endblock %}
+
+</body>
+</html>

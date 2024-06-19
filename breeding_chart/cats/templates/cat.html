@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+{% extends "master.html" %}
+
+{% block title %}
+  Details about Cats
+{% endblock %}
+
+{% block content %}
+<h1>Cats</h1>
+
+<ul>
+    {% for x in cat %}
+    <li><a href="cat_detail/{{ x.id }}">{{ x.cats_name }} {{ x.breeder_name }}</a></li>
+    {% endfor %}
+    <br>
+
+    {% if user.is_authenticated %}
+        <li><a href='/cat_list'>Add Cat</a></li>
+        <li><a href='/cat_list'>Remove Cat</a></li>
+        <li><a href='/cat_list'>Edit Cat</a></li>
+
+       {% else %}
+            <li><a href='users/login/'>Login</a></li>
+    {% endif %}
+
+    <p>Back to <a href="/home">Menu</a></p>
+</ul>
+{% endblock %}
+
+</body>
+</html>

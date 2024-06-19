@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block title %}Cat List{% endblock %}
+
+{% block content %}
+    <main>
+        <h2>Add New Cat</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Cat</button>
+        </form>
+        <button onclick="window.location.href='/cat_list'">Back</button>
+    </main>
+{% endblock %}
